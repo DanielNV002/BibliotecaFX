@@ -1,0 +1,33 @@
+/* Estilos globales */
+
+.background-style {
+    -fx-background-color: #f1f1f1;
+    -fx-background-radius: 15px;
+}
+
+Label {
+    -fx-text-fill: #333333;
+}
+
+Button {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+Button#GestionLibros {
+    -fx-background-color: #4CAF50;
+}
+
+Button#GestionSocios {
+    -fx-background-color: #FF9800;
+}
+
+Button#GestionAutores {
+    -fx-background-color: #2196F3;
+}
+
+Button#Prestamos {
+    -fx-background-color: #9C27B0;
+}
