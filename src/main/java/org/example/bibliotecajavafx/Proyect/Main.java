@@ -9,7 +9,6 @@ public class Main {
     public static void main(String[] args) {
         crearTablas();
     }
-
     public static void crearTablas() {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
