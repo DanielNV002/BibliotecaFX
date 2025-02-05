@@ -71,9 +71,9 @@
         </dependency>
         <!-- Hibernate Core (Asegúrate de usar la versión adecuada) -->
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.4.30.Final</version> <!-- O la versión que estés utilizando -->
+            <version>6.6.4.Final</version>
         </dependency>
 
         <!-- Jakarta Persistence (en lugar de javax.persistence) -->

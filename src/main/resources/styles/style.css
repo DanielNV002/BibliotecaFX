@@ -31,3 +31,24 @@ Button#GestionAutores {
 Button#Prestamos {
     -fx-background-color: #9C27B0;
 }
+
+/* Estilo para el botón de salida */
+.exit-button {
+    -fx-font-size: 16px; /* Tamaño de fuente más grande */
+    -fx-text-fill: white; /* Color del texto blanco */
+    -fx-background-color: #ff4b4b; /* Color de fondo naranja */
+    -fx-background-radius: 10px; /* Bordes redondeados */
+    -fx-padding: 10px 20px; /* Relleno interno */
+    -fx-font-weight: bold; /* Texto en negrita */
+}
+
+/* Efecto al pasar el mouse (hover) */
+.exit-button:hover {
+    -fx-background-color: #ff0000; /* Color de fondo más oscuro cuando pasa el mouse */
+    -fx-cursor: hand; /* Cambio de cursor a mano al pasar el mouse */
+}
+
+/* Efecto al hacer clic (pressed) */
+.exit-button:pressed {
+    -fx-background-color: #FF2A00; /* Color de fondo aún más oscuro al presionar */
+}

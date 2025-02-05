@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="30.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.bibliotecajavafx.Proyect.GestionesInterfaz" styleClass="background-style">
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="30.0" styleClass="background-style" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.bibliotecajavafx.Proyect.GestionesInterfaz">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+
+    <!-- Exit -->
+    <Button mnemonicParsing="false" text="Exit" fx:id="exitButton" styleClass="exit-button" onAction="#handleExitButtonClick">
+        <VBox.margin>
+            <Insets left="500.0" />
+        </VBox.margin>
+    </Button>
 
     <!-- Título -->
     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="500.0" text="Bienvenido a la Biblioteca" textAlignment="CENTER" textOverrun="CLIP">
         <font>
-            <Font name="System Bold" size="24.0"/>
+            <Font name="System Bold" size="24.0" />
         </font>
         <style>
             -fx-text-fill: rgb(50, 50, 50);
@@ -23,7 +30,7 @@
     <!-- Subtítulo -->
     <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="500.0" text="¿Qué deseas hacer?" textAlignment="CENTER">
         <font>
-            <Font size="18.0"/>
+            <Font size="18.0" />
         </font>
         <style>
             -fx-text-fill: rgb(100, 100, 100);
@@ -33,21 +40,21 @@
     <!-- Grid de botones -->
     <GridPane alignment="CENTER" hgap="20.0" vgap="20.0">
         <columnConstraints>
-            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="180.0"/>
-            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="180.0"/>
-            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="180.0"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="180.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="180.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="180.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
         </rowConstraints>
 
         <!-- Botones -->
-        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="180.0" text="Gestion Libros" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;"/>
-        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="180.0" text="Gestion Socios" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" GridPane.columnIndex="1"/>
-        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="180.0" text="Gestion Autores" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" GridPane.columnIndex="2"/>
-        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="180.0" text="Prestamos" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Button mnemonicParsing="false" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Gestion Libros" />
+        <Button mnemonicParsing="false" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Gestion Socios" GridPane.columnIndex="1" />
+        <Button mnemonicParsing="false" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Gestion Autores" GridPane.columnIndex="2" />
+        <Button mnemonicParsing="false" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Prestamos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     </GridPane>
 </VBox>

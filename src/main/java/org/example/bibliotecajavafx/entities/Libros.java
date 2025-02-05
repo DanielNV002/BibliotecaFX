@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name = "libros") // opcional si se quiere cambiar el nombre de la tabla
 public class Libros implements Serializable {
 
     @Id

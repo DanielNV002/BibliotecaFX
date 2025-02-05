@@ -12,7 +12,7 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- Desactivar los logs de consultas SQL -->
-        <property name="hibernate.show_sql">false</property> <!-- Esto desactiva la salida de SQL en consola -->
+        <property name="hibernate.show_sql">true</property> <!-- Esto desactiva la salida de SQL en consola -->
 
         <!-- Desactivar el formateo de las consultas SQL -->
         <property name="hibernate.format_sql">false</property>
