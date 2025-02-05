@@ -1,7 +1,6 @@
 package org.example.bibliotecajavafx.Proyect;
 
 import org.example.bibliotecajavafx.Util.HibernateUtil;
-import org.example.bibliotecajavafx.entities.Libros;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
