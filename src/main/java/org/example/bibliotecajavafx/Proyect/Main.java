@@ -9,7 +9,6 @@ public class Main {
 
     public static void main(String[] args) {
         crearTablas();
-
     }
     public static void crearTablas() {
         //Libros L = new Libros(null,"a","1","juan","marca",null);
