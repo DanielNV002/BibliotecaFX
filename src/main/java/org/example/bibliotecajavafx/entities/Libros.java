@@ -2,7 +2,6 @@ package org.example.bibliotecajavafx.entities;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
 
 @Entity
 public class Libros implements Serializable {
@@ -20,14 +19,14 @@ public class Libros implements Serializable {
 
     private String editorial;
 
-    private Date anyoPubli;
+    private Integer anyoPubli;
 
     //CONSTRUCTORES
     public Libros(){
 
     }
 
-    public Libros(Integer id, String titulo, String ISBN, String autor, String editorial, Date anyoPubli) {
+    public Libros(Integer id, String titulo, String ISBN, String autor, String editorial, Integer anyoPubli) {
         this.id = id;
         Titulo = titulo;
         this.ISBN = ISBN;
@@ -77,24 +76,17 @@ public class Libros implements Serializable {
         this.editorial = editorial;
     }
 
-    public Date getAnyoPubli() {
+    public Integer getAnyoPubli() {
         return anyoPubli;
     }
 
-    public void setAnyoPubli(Date anyoPubli) {
+    public void setAnyoPubli(Integer anyoPubli) {
         this.anyoPubli = anyoPubli;
     }
 
     //TOSTRING
     @Override
     public String toString() {
-        return "Libros{" +
-                "id=" + id +
-                ", Titulo='" + Titulo + '\'' +
-                ", ISBN='" + ISBN + '\'' +
-                ", autor='" + autor + '\'' +
-                ", editorial='" + editorial + '\'' +
-                ", anyoPubli=" + anyoPubli +
-                '}';
+        return Titulo;
     }
 }

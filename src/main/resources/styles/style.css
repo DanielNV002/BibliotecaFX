@@ -1,8 +1,7 @@
 /* Estilos globales */
 
 .background-style {
-    -fx-background-color: #f1f1f1;
-    -fx-background-radius: 15px;
+    -fx-background-color: #ffe6ce;
 }
 
 Label {
@@ -30,6 +29,14 @@ Button#GestionAutores {
 
 Button#Prestamos {
     -fx-background-color: #9C27B0;
+}
+
+.Titulo{
+    -fx-text-fill: rgb(50, 50, 50);
+}
+
+.Subtitulo{
+    -fx-text-fill: rgb(100, 100, 100);
 }
 
 /* Estilo para el botón de salida */

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="GLibros" alignment="CENTER" prefHeight="700.0" prefWidth="900.0" spacing="100.0" styleClass="background-style" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.bibliotecajavafx.Proyect.GestionesInterfaz">
+    <padding>
+        <Insets left="20.0" right="20.0" />
+    </padding>
+   <AnchorPane prefHeight="700.0" prefWidth="900.0">
+      <children> <!-- Espaciador para empujar el botón a la derecha -->
+           <Button layoutX="780.0" layoutY="20.0" mnemonicParsing="false" onAction="#BackButtonLibros" prefWidth="80.0" styleClass="exit-button" text="Back" />
+      
+          <!-- Título -->
+          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="100.0" prefHeight="45.0" prefWidth="500.0" styleClass="Titulo" text="Gestion Libros" textAlignment="CENTER" textOverrun="CLIP">
+              <font>
+                  <Font name="System Bold" size="24.0" />
+              </font>
+          </Label>
+   
+           <!-- Botones -->
+           <Button layoutX="20.0" layoutY="270.0" mnemonicParsing="false" onAction="#addLibro" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Añadir Libro" />
+           <Button layoutX="20.0" layoutY="350.0" mnemonicParsing="false" onAction="#updateLibro" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Modificar Libro" />
+           <Button layoutX="20.0" layoutY="435.0" mnemonicParsing="false" onAction="#deleteLibro" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #d71919; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Eliminar Libro" />
+           <Button layoutX="20.0" layoutY="520.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Buscar Libro" />
+          <Label layoutX="45.0" layoutY="600.0" text="(Titulo, Autor o ISBN)" />
+          <Label layoutX="320.0" layoutY="310.0" text="Titulo">
+            <font>
+               <Font size="18.0" />
+            </font></Label>
+         <TextField fx:id="tituloLibro" layoutX="320.0" layoutY="340.0" styleClass="Subtitulo" />
+          <Label layoutX="320.0" layoutY="380.0" text="Autor">
+              <font>
+                  <Font size="18.0" />
+              </font></Label>
+          <TextField fx:id="autorLibro" layoutX="320.0" layoutY="410.0" styleClass="Subtitulo" />
+          <Label layoutX="620.0" layoutY="310.0" text="ISBN">
+              <font>
+                  <Font size="18.0" />
+              </font></Label>
+          <TextField fx:id="ISBNLibro" layoutX="620.0" layoutY="340.0" styleClass="Subtitulo" />
+          <Label layoutX="620.0" layoutY="380.0" text="Editorial">
+              <font>
+                  <Font size="18.0" />
+              </font></Label>
+          <TextField fx:id="editorialLibro" layoutX="620.0" layoutY="410.0" styleClass="Subtitulo" />
+          <Label layoutX="320.0" layoutY="460.0" text="Año Publicacion">
+              <font>
+                  <Font size="18.0" />
+              </font></Label>
+          <TextField fx:id="anyoPubliLibro" layoutX="320.0" layoutY="490.0" styleClass="Subtitulo" />
+          <ChoiceBox fx:id="listaLibros" layoutX="300.0" layoutY="270.0" onMouseClicked="#cargarChoiceBox" prefWidth="500.0">
+          </ChoiceBox>
+
+      </children>
+   </AnchorPane>
+</VBox>
