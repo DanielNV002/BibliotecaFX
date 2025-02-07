@@ -21,7 +21,7 @@ public class IGestionSociosImpl implements IGestionSocios {
 
         try {
             // Crear sesión de Hibernate utilizando SessionFactory
-            session = new Configuration().configure().addAnnotatedClass(Libros.class).buildSessionFactory().openSession();
+            session = new Configuration().configure().addAnnotatedClass(Socios.class).buildSessionFactory().openSession();
 
             // Iniciar una transacción
             transaction = session.beginTransaction();

@@ -6,9 +6,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
+import org.example.bibliotecajavafx.DAO.IGestionAutoresImpl;
 import org.example.bibliotecajavafx.DAO.IGestionLibrosImpl;
-import org.example.bibliotecajavafx.DAO.IGestionSocios;
 import org.example.bibliotecajavafx.DAO.IGestionSociosImpl;
+import org.example.bibliotecajavafx.entities.Autores;
 import org.example.bibliotecajavafx.entities.Libros;
 import org.example.bibliotecajavafx.entities.Socios;
 
@@ -21,7 +22,10 @@ public class GestionesInterfaz {
     @FXML
     private VBox GSocios;
     @FXML
+    private VBox GAutores;
+    @FXML
     private VBox PPrincipal;
+
     @FXML
     private TextField tituloLibro;
     @FXML
@@ -34,6 +38,7 @@ public class GestionesInterfaz {
     private TextField anyoPubliLibro;
     @FXML
     private ChoiceBox<Libros> listaLibros;
+
     @FXML
     private TextField nombreSocio;
     @FXML
@@ -42,6 +47,15 @@ public class GestionesInterfaz {
     private TextField DirecSocio;
     @FXML
     private ChoiceBox<Socios> listaSocios;
+
+    @FXML
+    private TextField nombreAutor;
+    @FXML
+    private TextField NacionalAutor;
+    @FXML
+    private ChoiceBox<Autores> listaAutores;
+
+
 
     @FXML
     private void initialize() {
@@ -84,6 +98,10 @@ public class GestionesInterfaz {
     private void GestionSociosOnClick() throws IOException {
         new SceneSelector(PPrincipal, "/org/example/bibliotecajavafx/GestionSocios.fxml");
     }
+    @FXML
+    private void GestionAutoresOnClick() throws IOException {
+        new SceneSelector(PPrincipal, "/org/example/bibliotecajavafx/GestionAutores.fxml");
+    }
 
     //Botones Back
     @FXML
@@ -94,7 +112,10 @@ public class GestionesInterfaz {
     private void BackButtonSocios() throws IOException {
         new SceneSelector(GSocios, "/org/example/bibliotecajavafx/PantallaPrincipal.fxml");
     }
-
+    @FXML
+    private void BackButtonAutores() throws IOException {
+        new SceneSelector(GAutores, "/org/example/bibliotecajavafx/PantallaPrincipal.fxml");
+    }
 
     //METODOS DE LIBROS
     @FXML
@@ -214,4 +235,58 @@ public class GestionesInterfaz {
         TlfSocio.setText("");
         TlfSocio.setEditable(true);
     }
+
+
+    //METODOS DE AUTORES
+    @FXML
+    private void addAutor() {
+        new IGestionAutoresImpl().addAutor(new Autores(null, nombreAutor.getText(), NacionalAutor.getText()));
+        cleanAutor();
+        new IGestionAutoresImpl().loadAutores(listaAutores);
+    }
+
+    @FXML
+    private void updateAutor() {
+        new IGestionSociosImpl().updateSocio(nombreSocio.getText(), DirecSocio.getText(), Integer.parseInt(TlfSocio.getText()));
+        cleanAutor();
+        new IGestionSociosImpl().loadSocios(listaSocios);
+    }
+
+    @FXML
+    private void deleteAutor() {
+        new IGestionSociosImpl().deleteSocio(nombreSocio.getText());
+        cleanAutor();
+        new IGestionSociosImpl().loadSocios(listaSocios);
+    }
+
+    @FXML
+    private void searchAutor(){
+
+        Socios S = new IGestionSociosImpl().searchSocio(nombreSocio.getText(), TlfSocio.getText());
+
+        nombreSocio.setText(S.getNombre());
+        DirecSocio.setText(S.getDireccion());
+        TlfSocio.setText(S.getNTelefono().toString());
+    }
+
+    @FXML
+    private void cargarChoiceBoxAutores() {
+        listaAutores.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                // Rellenar los campos con los datos del libro seleccionado
+                nombreAutor.setText(newValue.getNombre());
+                nombreAutor.setEditable(false);
+                NacionalAutor.setText(newValue.getNacionalidad());
+            }
+        });
+    }
+
+    @FXML
+    private void cleanAutor() {
+        nombreAutor.setText("");
+        nombreAutor.setEditable(true);
+        NacionalAutor.setText("");
+        NacionalAutor.setEditable(true);
+    }
+
 }
