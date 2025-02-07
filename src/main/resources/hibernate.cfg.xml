@@ -25,6 +25,7 @@
 
         <!-- Mappings -->
         <mapping class="org.example.bibliotecajavafx.entities.Libros"/>
+        <mapping class="org.example.bibliotecajavafx.entities.Socios"/>
     </session-factory>
 </hibernate-configuration>
 

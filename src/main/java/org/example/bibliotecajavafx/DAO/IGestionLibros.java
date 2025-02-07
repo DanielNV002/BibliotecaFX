@@ -17,4 +17,6 @@ public interface IGestionLibros {
     // Metodo para eliminar un libro dado el ISBN
     void deleteLibro(String ISBN);
 
+    // Metodo para buscar un libro segun titulo, autor o ISBN
+    Libros searchLibro(String titulo, String autro, String ISBN);
 }
