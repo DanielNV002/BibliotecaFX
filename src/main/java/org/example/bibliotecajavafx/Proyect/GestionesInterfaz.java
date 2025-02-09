@@ -62,6 +62,7 @@ public class GestionesInterfaz {
         // Cargar los libros cuando la vista haya sido completamente inicializada
         new IGestionLibrosImpl().loadLibros(listaLibros);
         new IGestionSociosImpl().loadSocios(listaSocios);
+        new IGestionAutoresImpl().loadAutores(listaAutores);
         if (ISBNLibro != null) {
             // Limitar a 10 caracteres al presionar teclas en el TextField ISBNLibro
             ISBNLibro.addEventFilter(KeyEvent.KEY_TYPED, event -> {
@@ -247,26 +248,25 @@ public class GestionesInterfaz {
 
     @FXML
     private void updateAutor() {
-        new IGestionSociosImpl().updateSocio(nombreSocio.getText(), DirecSocio.getText(), Integer.parseInt(TlfSocio.getText()));
+        new IGestionAutoresImpl().updateAutor(nombreAutor.getText(), NacionalAutor.getText());
         cleanAutor();
-        new IGestionSociosImpl().loadSocios(listaSocios);
+        new IGestionAutoresImpl().loadAutores(listaAutores);
     }
 
     @FXML
     private void deleteAutor() {
-        new IGestionSociosImpl().deleteSocio(nombreSocio.getText());
+        new IGestionAutoresImpl().deleteAutor(nombreAutor.getText());
         cleanAutor();
-        new IGestionSociosImpl().loadSocios(listaSocios);
+        new IGestionAutoresImpl().loadAutores(listaAutores);
     }
 
     @FXML
     private void searchAutor(){
 
-        Socios S = new IGestionSociosImpl().searchSocio(nombreSocio.getText(), TlfSocio.getText());
+        Autores A = new IGestionAutoresImpl().searchAutor(nombreAutor.getText());
 
-        nombreSocio.setText(S.getNombre());
-        DirecSocio.setText(S.getDireccion());
-        TlfSocio.setText(S.getNTelefono().toString());
+        nombreAutor.setText(A.getNombre());
+        NacionalAutor.setText(A.getNacionalidad());
     }
 
     @FXML
@@ -288,5 +288,7 @@ public class GestionesInterfaz {
         NacionalAutor.setText("");
         NacionalAutor.setEditable(true);
     }
+
+    //METODOS DE PRESTAMOS
 
 }

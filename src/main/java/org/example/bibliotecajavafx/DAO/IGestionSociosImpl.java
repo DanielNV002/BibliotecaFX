@@ -54,7 +54,7 @@ public class IGestionSociosImpl implements IGestionSocios {
 
         try {
             // Abrir sesión con la configuración de Hibernate
-            session = new Configuration().configure().addAnnotatedClass(Libros.class).buildSessionFactory().openSession();
+            session = new Configuration().configure().addAnnotatedClass(Socios.class).buildSessionFactory().openSession();
 
             // Realizar la consulta para obtener todos los libros
             String hql = "FROM Socios";  // HQL para obtener todos los libros
@@ -181,5 +181,4 @@ public class IGestionSociosImpl implements IGestionSocios {
         }
         return socioEncontrado;
     }
-
 }
