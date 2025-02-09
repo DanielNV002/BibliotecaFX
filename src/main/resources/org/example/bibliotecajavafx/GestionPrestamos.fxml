@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="GPrestamos" alignment="CENTER" prefHeight="700.0" prefWidth="900.0" spacing="100.0" styleClass="background-style" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.bibliotecajavafx.Proyect.GestionesInterfaz">
+    <padding>
+        <Insets left="20.0" right="20.0" />
+    </padding>
+    <AnchorPane prefHeight="700.0" prefWidth="900.0">
+        <children> <!-- Espaciador para empujar el botón a la derecha -->
+            <Button layoutX="780.0" layoutY="20.0" mnemonicParsing="false" onAction="#BackButtonPrestamos" prefWidth="80.0" styleClass="exit-button" text="Back" />
+
+            <!-- Título -->
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="100.0" prefHeight="45.0" prefWidth="500.0" styleClass="Titulo" text="Gestion Prestamos" textAlignment="CENTER" textOverrun="CLIP">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+
+            <!-- Botones -->
+            <Button layoutX="35.0" layoutY="300.0" mnemonicParsing="false" onAction="#addPrestamo" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Hacer Prestamo" />
+            <Button layoutX="35.0" layoutY="533.0" mnemonicParsing="false" onAction="#listarLibrosPrestadosXTitulo" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Listado por Libro" />
+            <Button layoutX="35.0" layoutY="451.0" mnemonicParsing="false" onAction="#listarLibrosPrestadosXSocio" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #d71919; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Listado por Socio" />
+            <Button layoutX="668.0" layoutY="308.0" mnemonicParsing="false" onAction="#cleanPrestamos" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #7ae3e9; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-background-radius: 8px;" text="Limpiar" textAlignment="CENTER" />
+            <Label layoutX="35.0" layoutY="213.0" text="Libro">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+            <ChoiceBox fx:id="listaSocios" layoutX="243.0" layoutY="245.0" prefWidth="150.0" />
+            <Label layoutX="243.0" layoutY="213.0" text="Socio">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+            <ChoiceBox fx:id="listaLibros" layoutX="35.0" layoutY="245.0" prefWidth="150.0" />
+            <Label layoutX="450.0" layoutY="213.0" text="Fecha Prestamo">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+            <DatePicker fx:id="fechaPrestamo" layoutX="450.0" layoutY="243.0" />
+            <Label layoutX="655.0" layoutY="213.0" text="Fecha Devolucion">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+            <DatePicker fx:id="fechaDevolucion" layoutX="655.0" layoutY="243.0" />
+         <TextArea fx:id="listaPrestamos" layoutX="243.0" layoutY="397.0" prefHeight="239.0" prefWidth="587.0" />
+        </children>
+    </AnchorPane>
+</VBox>

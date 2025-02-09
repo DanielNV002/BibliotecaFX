@@ -27,6 +27,7 @@
         <mapping class="org.example.bibliotecajavafx.entities.Libros"/>
         <mapping class="org.example.bibliotecajavafx.entities.Socios"/>
         <mapping class="org.example.bibliotecajavafx.entities.Autores"/>
+        <mapping class="org.example.bibliotecajavafx.entities.Prestamos"/>
     </session-factory>
 </hibernate-configuration>
 

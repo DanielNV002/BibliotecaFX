@@ -3,17 +3,22 @@ package org.example.bibliotecajavafx.Proyect;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import org.example.bibliotecajavafx.DAO.IGestionAutoresImpl;
 import org.example.bibliotecajavafx.DAO.IGestionLibrosImpl;
+import org.example.bibliotecajavafx.DAO.IGestionPrestamosImpl;
 import org.example.bibliotecajavafx.DAO.IGestionSociosImpl;
 import org.example.bibliotecajavafx.entities.Autores;
 import org.example.bibliotecajavafx.entities.Libros;
+import org.example.bibliotecajavafx.entities.Prestamos;
 import org.example.bibliotecajavafx.entities.Socios;
 
 import java.io.IOException;
+import java.util.List;
 
 public class GestionesInterfaz {
 
@@ -23,6 +28,8 @@ public class GestionesInterfaz {
     private VBox GSocios;
     @FXML
     private VBox GAutores;
+    @FXML
+    private VBox GPrestamos;
     @FXML
     private VBox PPrincipal;
 
@@ -55,6 +62,12 @@ public class GestionesInterfaz {
     @FXML
     private ChoiceBox<Autores> listaAutores;
 
+    @FXML
+    private DatePicker fechaPrestamo;
+    @FXML
+    private DatePicker fechaDevolucion;
+    @FXML
+    private TextArea listaPrestamos;
 
 
     @FXML
@@ -63,6 +76,7 @@ public class GestionesInterfaz {
         new IGestionLibrosImpl().loadLibros(listaLibros);
         new IGestionSociosImpl().loadSocios(listaSocios);
         new IGestionAutoresImpl().loadAutores(listaAutores);
+
         if (ISBNLibro != null) {
             // Limitar a 10 caracteres al presionar teclas en el TextField ISBNLibro
             ISBNLibro.addEventFilter(KeyEvent.KEY_TYPED, event -> {
@@ -103,6 +117,10 @@ public class GestionesInterfaz {
     private void GestionAutoresOnClick() throws IOException {
         new SceneSelector(PPrincipal, "/org/example/bibliotecajavafx/GestionAutores.fxml");
     }
+    @FXML
+    private void GestionPrestamosOnClick() throws IOException {
+        new SceneSelector(PPrincipal, "/org/example/bibliotecajavafx/GestionPrestamos.fxml");
+    }
 
     //Botones Back
     @FXML
@@ -116,6 +134,10 @@ public class GestionesInterfaz {
     @FXML
     private void BackButtonAutores() throws IOException {
         new SceneSelector(GAutores, "/org/example/bibliotecajavafx/PantallaPrincipal.fxml");
+    }
+    @FXML
+    private void BackButtonPrestamos() throws IOException {
+        new SceneSelector(GPrestamos, "/org/example/bibliotecajavafx/PantallaPrincipal.fxml");
     }
 
     //METODOS DE LIBROS
@@ -290,5 +312,61 @@ public class GestionesInterfaz {
     }
 
     //METODOS DE PRESTAMOS
+    @FXML
+    private void addPrestamo() {
+        new IGestionPrestamosImpl().addPrestamo(new Prestamos(null, listaLibros.getValue().getTitulo(), listaSocios.getValue().getNombre(),
+                                                                        fechaPrestamo.getValue(), fechaDevolucion.getValue()));
+        cleanPrestamos();
+    }
 
+    @FXML
+    private void listarLibrosPrestadosXTitulo() {
+
+        String tituloLibro = listaLibros.getValue().getTitulo();
+        List<Prestamos> prestamos = new IGestionPrestamosImpl().listarPrestamosXLibro(tituloLibro);
+
+        StringBuilder sb = new StringBuilder();
+        if (prestamos.isEmpty()) {
+            sb.append("No hay préstamos registrados para este libro.");
+        } else {
+            for (Prestamos p : prestamos) {
+                sb.append("ID: ").append(p.getId())
+                        .append("\nSocio: ").append(p.getNombreSocio())
+                        .append("\nFecha Préstamo: ").append(p.getFechaPrestamo())
+                        .append("\nFecha Devolución: ").append(p.getFechaDevolucion() != null ? p.getFechaDevolucion() : "No devuelto")
+                        .append("\n----------------------\n");
+            }
+        }
+        listaPrestamos.setText(sb.toString());
+    }
+
+    @FXML
+    private void listarLibrosPrestadosXSocio() {
+
+        String nombreSocio = listaSocios.getValue().getNombre();
+        List<Prestamos> prestamos = new IGestionPrestamosImpl().listarHistorialPrestamos(nombreSocio);
+
+        StringBuilder sb = new StringBuilder();
+        if (prestamos.isEmpty()) {
+            sb.append("No hay préstamos registrados de este socio.");
+        } else {
+            for (Prestamos p : prestamos) {
+                sb.append("ID: ").append(p.getId())
+                        .append("\nSocio: ").append(p.getNombreSocio())
+                        .append("\nFecha Préstamo: ").append(p.getFechaPrestamo())
+                        .append("\nFecha Devolución: ").append(p.getFechaDevolucion() != null ? p.getFechaDevolucion() : "No devuelto")
+                        .append("\n----------------------\n");
+            }
+        }
+        listaPrestamos.setText(sb.toString());
+    }
+
+    @FXML
+    private void cleanPrestamos() {
+        listaLibros.getSelectionModel().clearSelection();
+        listaSocios.getSelectionModel().clearSelection();
+        fechaPrestamo.setValue(null);
+        fechaDevolucion.setValue(null);
+        listaPrestamos.clear();
+    }
 }
